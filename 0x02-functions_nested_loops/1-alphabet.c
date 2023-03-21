@@ -2,10 +2,10 @@
 
 /**
  * main - entry point
- * Return - always 0
+ * Return - void
  */
 
-int main(void)
+void print_alphabet(void)
 {
 	char c;
  for (c = 'a'; c <= 'z'; c++)
@@ -13,5 +13,4 @@ int main(void)
  _putchar(c);
  }
  _putchar('\n');
- return (0);
 }
