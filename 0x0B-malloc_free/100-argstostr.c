@@ -1,6 +1,13 @@
 #include "main.h"
 #include <stdio.h>
 #include <stdlib.h>
+/**
+ * *argstrostr - entry point
+ * @ac: value
+ * @av:value
+ * Return: always success
+ */
+
 char *argstostr(int ac, char **av)
 {
 int ch = 0, i = 0, j = 0, k = 0;
