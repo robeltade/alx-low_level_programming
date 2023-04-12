@@ -19,7 +19,7 @@ cents = atoi(argv[1]);
 while (cents > 0)
 {
 coins++;
-if ((cents – 25) >= 0)
+if ((cents - 25) >= 0)
 {
 cents -= 25;
 continue;
