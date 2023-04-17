@@ -1,4 +1,3 @@
-#include <stddef.h>
 #include <stdlib.h>
 #include "dog.h"
 int _strlen(char *s);
@@ -12,8 +11,8 @@ char *_strcpy(char *dest, char *src);
 dog_t *new_dog(char *name, float age, char *owner)
 {
 dog_t *max_dog;
-int name_l 0, own_l = 0;
-if (name != NUll && owner != NULL)
+int name_l = 0, own_l = 0;
+if (name != NULL && owner != NULL)
 {
 name_l = _strlen(name) + 1;
 own_l = _strlen(owner) + 1;
@@ -36,7 +35,7 @@ free(max_dog);
 return (NULL);
 }
 max_dog->name = _strcpy(max_dog->name, name);
-max_dog->name = _strcpy(max_dog->owner, owner);
+max_dog->owner = _strcpy(max_dog->owner, owner);
 max_dog->age = age;
 }
 return (max_dog);
@@ -59,7 +58,7 @@ return (c);
  * *_strcpy - entry point
  * @dest:value
  * @src:value
- *Return:always success
+ * Return:always success
  */
 char *_strcpy(char *dest, char *src)
 {
