@@ -1,12 +1,12 @@
-#include <stdio.h>
 #include "main.h"
+#include <stdio.h>
 /**
  * main - entry point
  * @argc: value
- * @**argv: value 2
- * Return: always 0
+ * @argv: value
+ * Return:value
  */
-int main(int agrc, char *argv[])
+int main(int argc, char *argv[])
 {
 (void) argc;
 printf("%s\n", argv[0]);
