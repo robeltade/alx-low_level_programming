@@ -1,10 +1,10 @@
+#include "main.h"
 #include <stdlib.h>
 #include <stdio.h>
-#include "main.h"
 /**
  * main - entry point
  * @argc: value
- * @argv: value
+ * @argv:value
  * Return: 0
  */
 int main(int argc, char *argv[])
