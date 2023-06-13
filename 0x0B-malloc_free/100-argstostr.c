@@ -5,7 +5,7 @@
  * *argstostr - entry function
  * @ac: value
  * @av: value
- * Reutrn : char value
+ * Return : char value
  */
 char *argstostr(int ac, char **av)
 {
