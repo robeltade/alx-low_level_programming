@@ -1,52 +1,64 @@
-#include <stdlib.h>
 #include "main.h"
+#include <stdlib.h>
 /**
- * atrtow - entry point
- * @str: value
- * Return: returns char value
+ * ch_free_grid - entry function
+ * @grid: value
+ * @height: value
  */
-char **strtow(char *str)
+void ch_free_grid(char **grid, unsigned int height)
 {
-char **strings;
-int index = 0, words, w, letter, l;
-if (str == NULL || str[0] == '\0')
+if (grid != NULL && height != 0)
 {
+for (; height > 0; height--)
+{ free(grid[height]); }
+free(grid[height]);
+free(grid);
+}
+}
+/**
+ * strow - splits a string of array int to two
+ * @str: value
+ * Return: returns values
+ */
+char **strow(char *str)
+{
+char **aout;
+unsigned int c, height, i, j, a1;
+if (str == NULL || *str == '\0')
+{ return (NULL); }
+for (c = height = 0; str[c] != '\0'; c++)
+{
+if (str[c] != ' ' && (str[c + 1] == ' '  || str[c + 1] == '\0'))
+{ height++; }
+}
+aout = malloc((height + 1) * sizeof(char *));
+if (aout == NULL || height == 0)
+{
+free(aout);
 return (NULL);
 }
-words = count_words(str);
-if (words == 0)
+for (i = a1 = 0; i < height; i++)
 {
+for (c = a1; str[c] != '\0'; c++)
+{
+if (str[c] == ' ')
+{ a1++; }
+if (str[c] != ' ' && (str[c + 1] == ' ' || str[c + 1] == '\0'))
+{
+aout[i] = malloc((c – a1 + 2) * sizeof(char));
+if (aout[i] == NULL)
+{
+ch_free_grid(aout, i);
 return (NULL);
 }
-strings = malloc(sizeof(char *) * (words + 1));
-if (strings == NULL)
-{
-return (NULL);
+break;
 }
-for (w = 0; w < words; w++)
-{
-while (str[index] == ' ')
-{
-index++;
 }
-letter = word_len(str + index); 
-strings[w] = malloc(sizeof(char) * (letter + 1));
-if (strings[w] == NULL)
-{
-for (; w >= 0; w--)
-{
-free(strings[w]);
+for (j = 0; a1 <= c; a1++, j++)
+{ aout[i][j] = str[a1]; }
+aout[i][j] = '\0';
 }
-free(strings);
-return (NULL);
-}
-for (l = 0; l < letter; l++)
-{
-strings[w][l] = str[index++];
-}
-strings[w][l] = '\0';
-}
-strings[w] = NULL;
-return (strings);
+aout[i] = NULL;
+return (aout);
 }
 
