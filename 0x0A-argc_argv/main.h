@@ -1,7 +1,7 @@
 #ifndef main_h
 #define main_h
 int _putchar (char);
-int atoi(char *s);
+extern int atoi(const char *_nptr);
 
 #endif 
 

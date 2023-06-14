@@ -1,47 +1,48 @@
-#include "main.h"
-#include <stdlib.h>
 #include <stdio.h>
+#include <stdlib.h>
+#include "main.h"
 /**
- * main - entry point
+ * main - entry function
  * @argc: value
- * @argv:value
+ * @argv: value
  * Return: 0
  */
-int main(int argc, char *argv[])
+int main(int argc, char **argv)
 {
-int cents, coins = 0;
+int total, count;
+unsigned int i;
+char *p;
+int cents[] = {25, 10, 5, 2};
+
 if (argc != 2)
 {
 printf("error\n");
 return (1);
 }
-cents = atoi(argv[1]);
-while (cents > 0)
+total = strtol(argv[1], &p, 10);
+count = 0;
+if (!*p)
 {
-coins++;
-if ((cents – 25) >= 0)
+while (total > 1)
 {
-cents -= 25;
-continue;
-}
-if ((cents - 10) >= 0)
+for (i = 0; i < sizeof(cents[i]); i++)
 {
-cents -= 10;
-continue;
-}
-if ((cents - 5) >= 0)
+if (total >= cents[i])
 {
-cents -= 5;
-continue;
+count += total / cents[i];
+total = total % cents[i];
 }
-if ((cents - 2) >= 0)
+}
+}
+if (total == 1)
+{ count++; }
+}
+else
 {
-cents -= 2;
-continue;
+printf("error\n");
+return (1);
 }
-cents--;
-}
-printf("%d", coins);
+printf("%d\n", count);
 return (0);
 }
 
