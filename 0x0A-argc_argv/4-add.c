@@ -8,33 +8,29 @@
  * @argv: value
  * Return:0
  */
-int main(int argc, char *argv[])
+int main(int argc, char **argv)
 {
-int i;
-unsigned int k, sum = 0;
-char *e;
-if (argc > 1)
+int i, n, sum = 0;
+char *flag;
+if (argc < 2)
 {
-for (i = 1; i < argc; i++)
+printf("0\n");
+return (0);
+}
+for (i = 1; argv[i];i++)
 {
-e = argv[i];
-for (k = 0; k < strlen(e); k++)
+n = strtol(argv[i], &flag, 10); 
+if (*flag)
 {
-if (e[k] < 48 || e[k] > 57)
-{
-printf("error\n");
+printf ("error\n");
 return (1);
-}
-}
-sum += atoi(e);
-e++;
-}
-printf("%d\n", sum);
 }
 else
 {
-printf("0\n");
+sum += n;
 }
+}
+printf("%d\n", sum);
 return (0);
 }
 
