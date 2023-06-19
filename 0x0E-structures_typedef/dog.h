@@ -1,5 +1,5 @@
-#ifndef _HEADER_
-#define _HEADER_
+#ifndef dog_h
+#define dog_h
 /**
  * struct dog – dog attribute
  * @name: the name of the dog
@@ -13,7 +13,7 @@ struct dog
 char *name;
 float age;
 char *owner;
-}
+};
 /**
  * dog_t – typedef for dog structure
  */
