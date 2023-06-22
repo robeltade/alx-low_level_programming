@@ -15,10 +15,11 @@ va_start(nums, n);
 for (index = 0; index < n; index++)
 {
 printf("%d", va_arg(nums, int));
-if (index != (n - 1) && separator != NULL)
+if (separator && index < n - 1)
 {
 printf("%s", separator);
 }}
+printf("\n");
 va_end(nums);
 }
 
