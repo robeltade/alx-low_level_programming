@@ -2,6 +2,7 @@
 /**
  * print_name - entry point
  * @f:value
+ * name: value
  */
 void print_name(char *name, void (*f)(char *))
 {
